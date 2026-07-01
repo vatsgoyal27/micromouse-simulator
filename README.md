@@ -9,12 +9,54 @@ A Micromouse simulator that navigates a virtual maze using the floodfill algorit
 
 ### `maze-solvers/`
 A multi-algorithm maze solver, also built with `turtle`, that runs six different pathfinding algorithms (Flood Fill, BFS, DFS, Dead-End Solver, Dijkstra, A*) side by side on the same maze — visualizing how each one explores and solves it differently.
+This project simulates navigating a grid-based maze using different pathfinding algorithms.
+
+Built with Python and `turtle`, the simulation visually demonstrates how each algorithm explores and solves the maze.
+
+## Project Structure
+
+- **main.py**  
+  Runs the maze simulation with all three solvers. Visualizes their paths in different colors:  
+  - Yellow: Flood Fill (uses a dynamic cost map)
+  - Blue: BFS (shortest path)  
+  - Green: DFS (non-optimal path)  
+  - Red: Dead-End Solver (eliminates all dead ends)
+  - Magenta: Dijkstra (uses a cost function)
+  - Cyan: A* (uses Dijkstra with an additional heuristic for estimated distance)
+
+- **maze.py**  
+  Generates the grid and walls. Includes functions to add or remove walls and builds a complex maze with loops and decoys.
+
+- **logic.py**  
+  Contains the core logic for solvers:
+  - `BFS`: Finds the shortest path.
+  - `DFS`: Explores deeply and may find non-optimal paths.
+  - `DeadEndSolver`: Fills dead ends to isolate the true path.
+  - `FloodFill`: Finds the shortest path using a cost map.
+  - `Dijkstra`: Finds the path using a cost function.
+  - `AStar`: Finds the path using Dijkstra with an extra heuristic estimate.
+
+- **drawers.py**  
+  Defines the `Mouse` class used to draw the maze, walls, and animate the robot's movement on the grid.
+
+---
+
+## How to Run
+
+Make sure Python is installed, then run:
+
+```bash
+python main.py
+```
+
+You'll see a visual simulation window. Each algorithm will take its turn solving the same maze.
+
+---
+---
 
 ### `maze-generators/`
 A **visual maze generation tool** using `pygame` in Python, **with multiple algorithms**:  
 Each algorithm runs step-by-step and visualizes the maze construction live with animated updates.
-
----
 
 ## File Structure
 
@@ -167,6 +209,7 @@ side_gen, krus_gen, grow_gen, wil_gen, albr_gen
 
 Just replace as required
 
+---
 ---
 
 ## Requirements

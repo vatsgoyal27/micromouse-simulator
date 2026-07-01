@@ -1,70 +1,23 @@
-# Micromouse Maze Simulator with Floodfill Pathfinding
+# Micromouse Maze Project
 
-A Python-based Micromouse simulator that navigates a virtual maze using the **floodfill algorithm**. Built with the `turtle` module for visual simulation and customizable grid logic for wall-following and dynamic maze solving.
+A collection of Python-based maze simulation and generation tools, exploring pathfinding and maze-building algorithms through visual simulation.
 
-[ Watch Demo Video](res/demo.mp4)
+## Folders
 
----
+### `micromouse-maze_sim_floodfill/`
+A Micromouse simulator that navigates a virtual maze using the floodfill algorithm, visualized with Python's `turtle` module. The mouse senses its surroundings step-by-step and updates a live cost map to find its way to the goal.
 
-## Features
+### `maze-solver/`
+A multi-algorithm maze solver, also built with `turtle`, that runs six different pathfinding algorithms (Flood Fill, BFS, DFS, Dead-End Solver, Dijkstra, A*) side by side on the same maze — visualizing how each one explores and solves it differently.
 
-- Interactive **18x18 grid-based maze**
-- Walls encoded with directional strings (`"n"`, `"e"`, `"s"`, `"w"`)
-- Turtle graphics-based visualization
-- Floodfill algorithm for live cost-map path planning
-- Mouse "senses" surroundings and updates the maze knowledge
-- Modular architecture:
-  - `maze.py`: grid + wall generation
-  - `mouse.py`: visual and logical mouse control
-  - `logic.py`: floodfill and decision-making
-  - `main.py`: simulation runner
+### `maze-generator-visualizer/`
+A `pygame`-based visual tool implementing ten different maze generation algorithms (DFS, Prim's, Hunt-and-Kill, Binary Tree, Origin Shifter, Sidewinder, Kruskal's, Growing Tree, Wilson's, Aldous-Broder), each animated step-by-step as the maze is constructed.
 
----
+## Requirements
 
-## Project Structure
+- Python 3.9+
+- `pygame` (only required for `maze-generator-visualizer/`)
 
-```
-micromouse-maze_sim_floodfill/
-├── main.py            # Entry point to run the simulator
-├── maze.py            # Maze generator and wall utility functions
-├── mouse.py           # Visual mouse with heading, movement, and grid drawing
-├── logic.py           # FloodFillMap logic (cost map + next move decisions)
-└── README.md          # This file
-```
+## License
 
----
-
-##  How to Run
-
-1. **Install Python 3.9**
-2. Clone this repository:
-
-   ```bash
-   git clone https://github.com/vatsgoyal27/micromouse-maze_sim_floodfill.git
-   cd micromouse-maze_sim_floodfill
-   ```
-
-3. Run the simulator:
-
-   ```bash
-   python main.py
-   ```
-
----
-
-## Controls (Autonomous)
-
-- The mouse starts at the bottom-left (cell `[17, 0]`)
-- The goal is top-right (cell `[0, 17]`)
-- The mouse reads nearby walls and updates a **floodfill cost map**
-- It chooses the next best cell to move toward the goal
-
----
-
-## Notes
-
-- The maze is generated in `maze.py` with a mix of real paths and false paths
-- The mouse maintains internal knowledge and updates its cost map using local wall sensing
-- The visual output updates using Python's turtle module, which may run slow on very large updates (for now, it's great for concept visualizations)
-
----
+This project is licensed under the [MIT License](LICENSE).

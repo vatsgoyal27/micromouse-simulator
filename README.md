@@ -5,7 +5,52 @@ A collection of Python-based maze simulation and generation tools, exploring pat
 ## Folders
 
 ### `micromouse sim/`
-A Micromouse simulator that navigates a virtual maze using the floodfill algorithm, visualized with Python's `turtle` module. The mouse senses its surroundings step-by-step and updates a live cost map to find its way to the goal.
+A Python-based Micromouse simulator that navigates a virtual maze using the **floodfill algorithm**. Built with the `turtle` module for visual simulation and customizable grid logic for wall-following and dynamic maze solving.
+
+[ Watch Demo Video](micromouse-simu/res/demo.mp4)
+
+## Features
+
+- Interactive **18x18 grid-based maze**
+- Walls encoded with directional strings (`"n"`, `"e"`, `"s"`, `"w"`)
+- Turtle graphics-based visualization
+- Floodfill algorithm for live cost-map path planning
+- Mouse "senses" surroundings and updates the maze knowledge
+- Modular architecture:
+  - `maze.py`: grid + wall generation
+  - `mouse.py`: visual and logical mouse control
+  - `logic.py`: floodfill and decision-making
+  - `main.py`: simulation runner
+
+---
+
+## Project Structure
+
+```
+micromouse-maze_sim_floodfill/
+├── main.py            # Entry point to run the simulator
+├── maze.py            # Maze generator and wall utility functions
+├── mouse.py           # Visual mouse with heading, movement, and grid drawing
+├── logic.py           # FloodFillMap logic (cost map + next move decisions)
+```
+
+## Controls (Autonomous)
+
+- The mouse starts at the bottom-left (cell `[17, 0]`)
+- The goal is top-right (cell `[0, 17]`)
+- The mouse reads nearby walls and updates a **floodfill cost map**
+- It chooses the next best cell to move toward the goal
+
+---
+
+## Notes
+
+- The maze is generated in `maze.py` with a mix of real paths and false paths
+- The mouse maintains internal knowledge and updates its cost map using local wall sensing
+- The visual output updates using Python's turtle module, which may run slow on very large updates (for now, it's great for concept visualizations)
+
+---
+---
 
 ### `maze-solvers/`
 A multi-algorithm maze solver, also built with `turtle`, that runs six different pathfinding algorithms (Flood Fill, BFS, DFS, Dead-End Solver, Dijkstra, A*) side by side on the same maze — visualizing how each one explores and solves it differently.
@@ -66,7 +111,6 @@ Each algorithm runs step-by-step and visualizes the maze construction live with 
 ├── cell.py                # Defines individual maze cells (walls, colors, draw logic)
 ├── grid.py                # Utility to create the grid of cells
 ├── mazemakers.py          # Contains all maze generation algorithms and shared logic
-└── README.md              # You are here
 ```
 
 ---
